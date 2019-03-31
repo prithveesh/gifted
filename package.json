@@ -10,27 +10,53 @@
     "webpackDev:server": "npm run build:server:once && npm-run-all --parallel nodemon:prod watch:server",
     "build:server:once": "cross-env NODE_ENV=development webpack --config ./config/webpack.server.config.js",
     "watch:server": "cross-env NODE_ENV=development webpack --config ./config/webpack.server.config.js --watch",
-    "nodemon:prod": "cross-env NODE_ENV=development node-dev ./build/server/server.prod.js"
+    "nodemon:prod": "cross-env NODE_ENV=development node-dev ./build/server/server.prod.js",
+    "lint": "eslint src -c .eslintrc.json --ext js"
   },
   "dependencies": {
-    "@babel/core": "^7.4.0",
     "@babel/polyfill": "^7.4.0",
+    "@zeit/next-sass": "^1.0.1",
+    "husky": "^1.3.1",
+    "next": "^8.0.3",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
-    "@zeit/next-sass": "^1.0.1",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.1",
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
-    "next": "^8.0.3",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-import-resolver-webpack": "^0.11.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "lint-staged": "^8.1.5",
     "node-dev": "^3.1.3",
-    "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "prettier": "^1.16.4",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-log": "^2.0.0",
     "webpack-node-externals": "^1.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint src --fix"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint src --fix"
+    ],
+    "*.{js,jsx,json,md}": [
+      "prettier --list-different"
+    ]
   }
 }
