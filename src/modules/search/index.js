@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState, useEffect, useRef } from 'react';
 import fetchGifs from './api/results';
@@ -63,14 +64,14 @@ function SearchModule() {
   useEffect(() => {
     if (!isMount.current) return;
     getGifs(searchValue);
-  }, [getGifs, searchValue]);
+  }, [searchValue]);
 
   useEffect(() => {
     if (!isMount.current || !isFetching || !searchData || !searchData.length) {
       return;
     }
     onInfiniteScroll();
-  }, [isFetching, onInfiniteScroll, searchData]);
+  }, [isFetching]);
 
   // ComponentDidMount & ComponentWillUnmount
   useEffect(() => {
@@ -80,7 +81,7 @@ function SearchModule() {
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, [getGifs, onScroll]);
+  }, []);
 
   return (
     <div>
