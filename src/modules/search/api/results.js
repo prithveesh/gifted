@@ -2,8 +2,8 @@ import { apiGet } from '../../../lib/fetch';
 
 let fetchController;
 const key = 'duQKT0lPxdLMdnMZhQHmLBE6vZPHRZkM';
-const searchUrl = 'http://api.giphy.com/v1/gifs/search';
-const trendingUrl = 'http://api.giphy.com/v1/gifs/trending';
+const searchUrl = '//api.giphy.com/v1/gifs/search';
+const trendingUrl = '//api.giphy.com/v1/gifs/trending';
 
 const makeSearchUrl = (baseUrl, query, offset = 0, limit = 25) => {
   const q = query ? `q=${query.replace(/ /g, '+')}` : '';
