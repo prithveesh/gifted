@@ -10,8 +10,11 @@ function IndexPage() {
       <Head>
         <title>GIFted</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Courgette|Dosis"
+          rel="stylesheet"
+        />
       </Head>
-      <p>Search GIFy</p>
       <SearchComponent />
     </div>
   );

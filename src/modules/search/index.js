@@ -1,21 +1,20 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import fetchGifs from './api/results';
 import { getScrollEnd } from '../../lib/utils';
 
 // Components
+import HeaderComponent from './components/header/header';
 import Grid from './components/grid/grid';
-import SearchBox from './components/searchBox/searchBox';
-
-import './style.scss';
+import './search.scss';
 
 function SearchModule() {
   const [searchData, setSearchData] = useState([]);
   const [searchValue, setSearchValue] = useState(null);
   const [paginationData, setPaginationData] = useState({});
   const [isFetching, setIsFetching] = useState(false);
-  const [playGif, setPlayGif] = useState(false);
+  const [playGif, setPlayGif] = useState(true);
   const isMount = useRef(false);
 
   function parseData(res) {
@@ -84,8 +83,8 @@ function SearchModule() {
   }, []);
 
   return (
-    <div>
-      <SearchBox onSearch={onSearch} />
+    <div className="search-wrapper">
+      <HeaderComponent onSearch={onSearch} />
       <button type="button" onClick={onPlayGif}>
         Toggle Play
       </button>

@@ -1,0 +1,8 @@
+@import './reset.scss';
+@import './variables.scss';
+@import './mixins.scss';
+@import './base.scss';
+
+body {
+  background-color: theme-color('background', 'dark');
+}
