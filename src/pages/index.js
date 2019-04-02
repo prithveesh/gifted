@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 
+import SearchComponent from '../modules/search';
+
 function IndexPage() {
   return (
     <div>
@@ -9,6 +11,7 @@ function IndexPage() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <p>Search GIFy</p>
+      <SearchComponent />
     </div>
   );
 }

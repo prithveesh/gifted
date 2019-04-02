@@ -17,7 +17,6 @@ class MyApp extends App {
 
     return (
       <Container>
-        <div>upar wala</div>
         <Component {...pageProps} />
       </Container>
     );
