@@ -1,3 +1,10 @@
 .outer-wrapper {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  > div {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+  }
 }

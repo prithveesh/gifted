@@ -10,12 +10,20 @@
     flex-wrap: wrap;
     font-size: 0;
     align-items: center;
+    justify-content: center;
 
     // display: flex;
     // flex-flow: column wrap;
     // max-height: 800px;
     // margin-left: -8px; /* Adjustment for the gutter */
     // width: 100%;
+
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    // grid-auto-rows: min-content;
+    // grid-gap: 10px;
+    // grid-auto-flow: dense;
+
     // display: grid;
     // grid-gap: 10px;
     // grid-template-columns: auto auto auto;
