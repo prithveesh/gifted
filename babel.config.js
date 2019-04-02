@@ -12,6 +12,7 @@ module.exports = {
     ],
     '@babel/preset-react',
     '@babel/preset-flow',
+    'next',
   ],
   plugins: [
     '@babel/plugin-proposal-object-rest-spread',

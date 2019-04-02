@@ -1,7 +1,8 @@
+// require('@babel/polyfill');
 import React from 'react';
 import Head from 'next/head';
 
-import SearchComponent from '../modules/search';
+import SearchComponent from '../src/modules/search';
 
 function IndexPage() {
   return (

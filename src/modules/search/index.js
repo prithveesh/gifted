@@ -7,6 +7,8 @@ import { getScrollEnd } from '../../lib/utils';
 import Grid from './components/grid/grid';
 import SearchBox from './components/searchBox/searchBox';
 
+import './style.scss';
+
 function SearchModule() {
   const [searchData, setSearchData] = useState([]);
   const [searchValue, setSearchValue] = useState(null);
