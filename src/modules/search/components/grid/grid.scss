@@ -28,14 +28,29 @@
     // grid-gap: 10px;
     // grid-template-columns: auto auto auto;
 
-    img {
-      margin: 5px;
-      transition: 0.2s opacity;
+    li {
+      list-style: none;
+      padding: 1em;
     }
-    &:hover img {
-      opacity: 0.6;
-      &:hover {
-        opacity: 1;
+    .grid-cell {
+      $colors: red, orange, yellow, green, blue, purple;
+      $repeat: 10;
+      @for $i from 1 through $repeat {
+        &:nth-child(#{length($colors)}n + #{$i}) {
+          background: lighten(nth($colors, random(length($colors))), 20%);
+        }
+      }
+      margin: 10px;
+      img,
+      picture,
+      source {
+        display: flex;
+        pointer-events: none;
+        @media (min-width: $media-desktop) {
+          img {
+            // width: 30%;
+          }
+        }
       }
     }
   }

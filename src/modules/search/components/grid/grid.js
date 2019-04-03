@@ -4,24 +4,22 @@ import GridCell from '../gridCell/gridCell';
 import './grid.scss';
 
 function Grid(props) {
-  const { results, playGif } = props;
-
-  function createCell(gif) {
-    return (
-      <GridCell
-        key={gif.slug}
-        title={gif.title}
-        images={gif.images}
-        playGif={playGif}
-      />
-    );
-  }
+  const { results, playGif, openGif } = props;
 
   return (
     <div className="wrapper">
       <div className="list-container">
-        {' '}
-        {results.map(gif => createCell(gif))}{' '}
+        {results.map(gif => {
+          return (
+            <GridCell
+              key={gif.slug}
+              title={gif.title}
+              images={gif.images}
+              playGif={playGif}
+              openGif={openGif}
+            />
+          );
+        })}
       </div>
     </div>
   );
