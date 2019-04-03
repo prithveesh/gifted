@@ -9,6 +9,7 @@ export default function(props) {
   const { original } = images;
 
   function onBgClick(event) {
+    event.preventDefault();
     if (event.stopPropagation) {
       event.stopPropagation();
     }
@@ -19,6 +20,7 @@ export default function(props) {
   }
 
   function onImageClick(event) {
+    event.preventDefault();
     if (event.stopPropagation) {
       event.stopPropagation();
     }
@@ -27,21 +29,11 @@ export default function(props) {
     }
   }
 
-  function onMouseOver() {}
-
-  function onMouseOut() {}
-
   return (
     <div className="detail-view" onClick={onBgClick}>
       <div className="image-container">
         <div className="image-title">{title}</div>
-        <picture
-          onClick={onImageClick}
-          onFocus={onMouseOver}
-          onMouseOver={onMouseOver}
-          onBlur={onMouseOut}
-          onMouseOut={onMouseOut}
-        >
+        <picture onClick={onImageClick}>
           <source type="image/webp" srcSet={original.webp} />
           <img src={original.url} alt={title} />
         </picture>
