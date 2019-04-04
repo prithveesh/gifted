@@ -1,9 +1,9 @@
 .loader-wrapper {
-  position: sticky;
+  position: relative;
   display: flex;
   width: 100%;
   justify-content: center;
-  .loader-1spinner {
+  .loader-spinner {
     color: official;
     display: inline-block;
     position: relative;

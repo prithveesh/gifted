@@ -55,10 +55,16 @@ function GridGif(props) {
 
   useEffect(() => {
     const ref = cellRef.current;
-    const observer = new IntersectionObserver(intersectionCallback);
-    observer.observe(ref);
+    let observer;
+    if (window && window.IntersectionObserver) {
+      observer = new IntersectionObserver(intersectionCallback);
+      observer.observe(ref);
+    } else if (window) {
+      console.log('IntersectionObserver not supported');
+      setShowImage(true);
+    }
     return () => {
-      observer.unobserve(ref);
+      if (observer) observer.unobserve(ref);
     };
   }, []);
 
