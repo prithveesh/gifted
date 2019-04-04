@@ -5,10 +5,11 @@ const key = 'duQKT0lPxdLMdnMZhQHmLBE6vZPHRZkM';
 const searchUrl = '//api.giphy.com/v1/gifs/search';
 const trendingUrl = '//api.giphy.com/v1/gifs/trending';
 
-const makeSearchUrl = (baseUrl, query, offset = 0, limit = 25) => {
+const makeSearchUrl = (baseUrl, query, offset = 0) => {
   const q = query ? `q=${query.replace(/ /g, '+')}` : '';
   const offsetParam = offset ? `&offset=${offset}` : '';
-  const url = `${baseUrl}?${q}&limit=${limit}&key=${key}${offsetParam}`;
+  const noOfItems = offset ? 10 : 20;
+  const url = `${baseUrl}?${q}&limit=${noOfItems}&key=${key}${offsetParam}`;
   return url;
 };
 

@@ -11,6 +11,7 @@
     font-size: 0;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 
     // display: flex;
     // flex-flow: column wrap;
@@ -33,11 +34,21 @@
       padding: 1em;
     }
     .grid-cell {
-      $colors: red, orange, yellow, green, blue, purple;
+      $colors: red, orange, yellow, green, blue, purple, white;
       $repeat: 10;
       @for $i from 1 through $repeat {
         &:nth-child(#{length($colors)}n + #{$i}) {
+          @keyframes changeColor#{$i} {
+            50% {
+              background-color: lighten(
+                nth($colors, random(length($colors))),
+                20%
+              );
+            }
+          }
           background: lighten(nth($colors, random(length($colors))), 20%);
+          animation: changeColor#{$i} 2s forwards 2;
+          transition: background-color ease 1s;
         }
       }
       margin: 10px;
