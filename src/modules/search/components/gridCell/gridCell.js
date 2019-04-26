@@ -60,6 +60,7 @@ function GridGif(props) {
       observer = new IntersectionObserver(intersectionCallback);
       observer.observe(ref);
     } else if (window) {
+      // eslint-disable-next-line no-console
       console.log('IntersectionObserver not supported');
       setShowImage(true);
     }
